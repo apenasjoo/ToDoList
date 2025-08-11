@@ -65,7 +65,7 @@ A ser definido (Planejado: React.js)
 
 Banco de Dados:
 
-MySQL
+MySQL.
 
 Ambiente & DevOps:
 
