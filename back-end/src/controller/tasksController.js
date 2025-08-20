@@ -1,16 +1,38 @@
 const tasksModel = require("../models/tasksModels");
-const gettAll = async (_request, response) => {
-  const tasks = await tasksModel.getAll();
 
+
+// Mostrar as tasks
+const getAll = async (_request, response) => {
+  const tasks = await tasksModel.getAll();
   return response.status(200).json(tasks);
 };
 
-const creatTask = async (request, response) => {
-  // const createdTask = await tasksModel.creatTask
-  return response.status(201).json({ message: "Ok" });
+
+// criar tasks
+const createTask = async (request, response) => {
+  const createdTask = await tasksModel.createTask(request.body);
+
+  return response.status(201).json(createdTask);
 };
 
+
+// deletar tasks
+const deleteTask = async (request, response) =>{
+ const { id } = request.params
+ await tasksModel.deleteTask(id);
+ return response.status(204).json()
+}
+
+const updateTask = async (request, response) =>{
+const { id } = request.params
+await tasksModel.updateTask(id, request.body)
+return response.status(204).json();
+
+}
+
 module.exports = {
-  gettAll,
-  creatTask,
+  getAll,
+  createTask,
+  deleteTask,
+  updateTask,
 };
