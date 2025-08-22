@@ -1,105 +1,105 @@
-API de Lista de Tarefas (To-Do List)
-Este projeto consiste em uma API RESTful completa para gerenciamento de uma lista de tarefas. A API foi desenvolvida com Node.js e Express, utilizando um banco de dados relacional (MySQL) para a persistência dos dados.
+# 📌 ToDo List - Full Stack API
 
-A aplicação suporta todas as operações básicas de um CRUD (Create, Read, Update, Delete) e foi estruturada de forma organizada, separando as responsabilidades em camadas como Rotas, Controladores, Middlewares e Modelos, seguindo as melhores práticas de desenvolvimento de software.
+Este projeto é uma **API RESTful completa** para gerenciamento de uma Lista de Tarefas (*To-Do List*).  
+O objetivo é demonstrar conhecimentos sólidos em **Node.js, Express, Docker e MySQL**, aplicando boas práticas de arquitetura e desenvolvimento back-end. 
+o Front-end Sera feito e Desenvolvimento com javascript, HTML e CSS. o Basico mas funcional.
 
-✨ Funcionalidades
-Criar novas tarefas.
+Com essa aplicação, é possível **criar, listar, atualizar e deletar tarefas**, persistindo os dados em um banco relacional.  
 
-Listar todas as tarefas cadastradas.
+---
 
-Atualizar o título e o status de uma tarefa existente.
+## 🚀 Tecnologias Utilizadas
 
-Deletar uma tarefa específica.
+- **Node.js** – ambiente de execução JavaScript no servidor.  
+- **Express.js** – framework para criação da API RESTful.  
+- **MySQL** – banco de dados relacional para persistência das tarefas.  
+- **Docker** – conteinerização da aplicação para padronizar o ambiente de execução.  
 
-Validação dos dados de entrada para garantir que tarefas não sejam criadas ou atualizadas com informações inválidas.
+---
 
-🛠️ Tecnologias e Ferramentas
-A seguir, a lista de ferramentas essenciais utilizadas na construção e teste do projeto:
+## ⚙️ Funcionalidades Até o Momento
 
-Ferramenta	Uso no Projeto
-Node.js	Ambiente de execução para o código JavaScript no backend.
-Express.js	Framework para criar o servidor e gerenciar as rotas da API.
-MySQL	Banco de dados relacional para armazenar as tarefas.
-Docker	Ferramenta para criar e gerenciar o ambiente do banco de dados MySQL de forma isolada e padronizada.
-Nodemon	Utilitário que reinicia o servidor automaticamente durante o desenvolvimento.
-Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env.
-ESLint	Ferramenta para análise estática do código, garantindo um padrão de qualidade.
-Insomnia / Postman	Cliente de API para testar os endpoints (GET, POST, PUT, DELETE).
+- Criar uma nova tarefa ✅  
+- Listar todas as tarefas 📋  
+- Atualizar uma tarefa ✏️  
+- Deletar uma tarefa 🗑️  
 
-Exportar para as Planilhas
-🚀 Instalação e Execução
-Para executar este projeto em sua máquina local, siga os passos abaixo na ordem correta.
+---
 
-Pré-requisitos
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+## 🛠️ Pré-requisitos
 
-Node.js (versão LTS recomendada)
+Antes de rodar o projeto, verifique se possui instalado:  
 
-Docker Desktop
+- [Node.js](https://nodejs.org/) (versão LTS recomendada)  
+- [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)  
+- [MySQL Workbench](https://www.mysql.com/products/workbench/) ou outro cliente SQL (opcional, para visualizar os dados).  
 
-Um Cliente de API como Insomnia ou Postman
+---
 
-(Opcional) Um cliente de banco de dados como DBeaver ou uma extensão do VS Code para gerenciar o MySQL.
+## ▶️ Como Rodar o Projeto
 
-Passo a Passo
-Clone o Repositório
-
-Bash
-
+1. **Clonar o repositório**  
+```bash
 git clone https://github.com/apenasjoo/ToDoList.git
-cd ToDoList/backend
-Instale as Dependências do Node.js
-Execute o comando abaixo para instalar todos os pacotes definidos no package.json.
+cd ToDoList
+```
 
-Bash
-
+2. **Instalar as dependências**  
+```bash
 npm install
-Configure as Variáveis de Ambiente
-Crie uma cópia do arquivo de exemplo .env.example e renomeie para .env.
+```
 
-Bash
+3. **Configurar variáveis de ambiente**  
+Crie um arquivo `.env` na raiz do projeto com as credenciais do banco de dados:  
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=sua_senha
+DB_NAME=todolist
+DB_PORT=3306
+```
 
-cp .env.example .env
-Abra o arquivo .env e certifique-se de que as credenciais correspondem ao que será configurado no Docker.
+4. **Rodar com Docker**  
+```bash
+docker-compose up --build
+```
 
-Inicie o Banco de Dados com Docker
-Este comando irá baixar a imagem do MySQL (se necessário) e iniciar um contêiner chamado mysql rodando em segundo plano.
+5. **Testar a API**  
+Acesse:  
+```
+http://localhost:3000/api/tasks
+```
 
-Bash
+---
 
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql
-Importante: A senha definida em MYSQL_ROOT_PASSWORD (root, neste caso) deve ser a mesma do seu arquivo .env.
+## 📡 Endpoints da API
 
-Crie o Banco de Dados e a Tabela
-Conecte-se ao seu contêiner MySQL usando seu cliente de banco de dados preferido com as credenciais do passo anterior (host: localhost, user: root, password: root, port: 3306). Em seguida, execute o script SQL abaixo para criar a estrutura necessária.
+| Método | Rota             | Descrição                  |
+|--------|------------------|-----------------------------|
+| GET    | `/api/tasks`     | Lista todas as tarefas      |
+| POST   | `/api/tasks`     | Cria uma nova tarefa        |
+| PUT    | `/api/tasks/:id` | Atualiza uma tarefa         |
+| DELETE | `/api/tasks/:id` | Remove uma tarefa           |
 
-SQL
+---
 
-CREATE DATABASE IF NOT EXISTS todolist;
+## 🎯 Diferenciais do Projeto
 
-USE todolist;
+- Uso de **Docker** para garantir portabilidade e fácil setup do ambiente.  
+- Arquitetura baseada em **RESTful APIs**, aplicando boas práticas.  
+- Integração com **banco de dados relacional (MySQL)**.  
+- Projeto estruturado para **crescer em complexidade**, permitindo futuras implementações de autenticação, testes automatizados e frontend integrado.  
 
-CREATE TABLE tasks (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(45) NOT NULL,
-    status VARCHAR(45) NOT NULL,
-    created_at VARCHAR(45) NOT NULL
-);
-Execute a Aplicação
-Com o banco de dados rodando e configurado, inicie o servidor da API.
+---
 
-Bash
+## 💡 Por que este projeto é relevante?
 
-npm run dev
-O servidor estará rodando em http://localhost:3333.
+Este projeto foi desenvolvido com o objetivo de **demonstrar habilidades práticas em desenvolvimento back-end e front-end** usando o ecossistema **Node.js** aliado a **bancos de dados relacionais** e práticas modernas como **containerização com Docker**.  
 
-Teste os Endpoints
-Abra o Insomnia ou Postman e você pode começar a fazer requisições para a API.
+Se você é recrutador: este repositório reflete meu comprometimento em escrever código limpo, estruturado e escalável, pronto para evoluir em ambientes de produção.  
 
-📖 Endpoints da API
-Método	Endpoint	Descrição	Corpo (Body) da Requisição
-GET	/tasks	Lista todas as tarefas.	Vazio
-POST	/tasks	Cria uma nova tarefa.	{ "title": "Nova Tarefa" }
-PUT	/tasks/{id}	Atualiza uma tarefa existente.	{ "title": "Título Editado", "status": "concluída" }
-DELETE	/tasks/{id}	Deleta uma tarefa específica.	Vazio
+---
+
+## 👨‍💻 Autor
+
+Feito com dedicação por [**João**](https://github.com/apenasjoo) 🚀  
