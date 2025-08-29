@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+body {
+  background-color: #929595c2;
+  background-image: url("/front-end/css/pexels-shvets-production-9052538.jpg");
+  background-position: center;
+}
+
+main {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.add-form {
+  display: flex;
+  margin-bottom: 50px;
+  gap: 8px;
+  width: 100%; /* Espaço entre input e botão */
+  align-items: center;
+  border-radius: 50px;
+}
+
+input {
+  width: 100%;
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+button[type="submit"] {
+  background-color: #1ca1d1c2;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+td {
+  color: #333;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #e0d7d7;
+}
+
+select {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: #ebebeb;
+}
+
+select:hover {
+  background-color: #ddd;
+}
+
+.btn-action {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.btn-action:hover {
+  background-color: #ebebeb;
+}
+
+.btn-action:not(.btn-edit):not(.btn-delete):hover {
+  background-color: #ebebeb;
+}
+
+.btn-edit {
+  background-color: #1ca1d1c2; /* azul para editar */
+}
+.btn-edit:hover {
+  background-color: #178bb3;
+}
+
+.btn-delete {
+  background-color: #e74c3c; /* vermelho para deletar */
+}
+.btn-delete:hover {
+  background-color: #c0392b;
+}
